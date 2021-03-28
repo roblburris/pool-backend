@@ -32,7 +32,16 @@ func UpdatePair(ctx context.Context, ref *db.Ref, pairings map[int64]int64) {
 			fmt.Sprintf("%d/partner", k): v,
 			fmt.Sprintf("%d/partner", v): k,
 		}); err != nil {
-			log.Fatalln("Error updating children:", err)
+			log.Println("Error updating info:", err)
 		}
+	}
+}
+
+// UpdateUser - updates a user with the new info passed in
+func UpdateUser(ctx context.Context, ref *db.Ref, newInfo User) {
+	if err := ref.Update(ctx, map[string]interface{} {
+		fmt.Sprintf("%d", newInfo.ID): newInfo,
+	}); err != nil {
+		log.Println("Error updating user ", newInfo.ID, err)	
 	}
 }

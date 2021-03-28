@@ -2,11 +2,11 @@ package database
 
 // User - 
 type User struct {
-	Destination string	`json:"destination"`
-	Driver bool `json:"driver"`
-	ID int64 `json:"id"`
-	Name string `json:"name"`
-	Opted bool `json:"opted"`
-	Partner int64 `json:"partner"`
-	TargetCity string `json:"target-city"`
+	Destination string	`json:"destination,omitempty"`
+	Driver bool `json:"driver,omitempty"`
+	ID int64 `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Opted bool `json:"opted,omitempty"`
+	Partner int64 `json:"partner,omitempty"`
+	TargetCity string `json:"target-city,omitempty"`
 }
